@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Prompt Library for Educators</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="nav-left">
+      <a href="#" class="brand" onclick="switchView('home'); return false;">
+        AI Prompt Library <span>✦</span>
+      </a>
+      <nav>
+        <a class="nav-link active" id="nav-home" onclick="switchView('home')">Home</a>
+        <a class="nav-link" id="nav-library" onclick="switchView('library')">Library</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <input type="text" id="searchInput" placeholder="Search prompts..." oninput="handleSearch(this.value)" />
+    </div>
+  </header>
+
+  <!-- ================= VIEW 1: HOME ================= -->
+  <section id="view-home" class="view-section active">
+    <!-- Hero Banner with Library Atmosphere -->
+    <div class="hero">
+      <div class="hero-content">
+        <h1>Empower Your Classroom with Generative AI</h1>
+        <p>
+          Master pedagogical prompt engineering. Turn generic AI responses into standards-aligned lesson plans, rigorous assessments, differentiated tasks, and actionable student analytics.
+        </p>
+        <button class="btn-explore" onclick="switchView('library')">Open Prompt Library</button>
+      </div>
+    </div>
+
+    <!-- Intro Lesson for Educators on Prompt Engineering -->
+    <div class="guide-container">
+      <h2 class="section-title">Mastering Educational Prompts</h2>
+      <p class="section-subtitle">A quick primer on how educators can craft high-impact AI instructions</p>
+
+      <div class="cards-grid">
+        <div class="guide-card">
+          <span class="guide-badge">Principle 1</span>
+          <h3>Specify Pedagogical Role</h3>
+          <p>Don't just ask AI for a quiz. Assign a persona: <em>"Act as an expert 8th-grade STEM teacher specializing in inquiry-based learning."</em> This primes higher cognitive depth.</p>
+        </div>
+
+        <div class="guide-card">
+          <span class="guide-badge">Principle 2</span>
+          <h3>Provide Concrete Constraints</h3>
+          <p>Define time limits, state standards (e.g., CCSS or NGSS), reading levels, and preferred modalities (e.g., Socratic dialogue, formative exit ticket).</p>
+        </div>
+
+        <div class="guide-card">
+          <span class="guide-badge">Principle 3</span>
+          <h3>Demand Structure & Rubrics</h3>
+          <p>Instruct the AI to format with distinct headers, markdown tables, teacher scripts, anticipated misconceptions, and ready-to-print student response sheets.</p>
+        </div>
+      </div>
+
+      <!-- Educator Prompt Framework Formula -->
+      <div class="formula-box">
+        <h3 class="formula-title">The Classroom Prompt Blueprint</h3>
+        <p class="formula-subtitle">Every prompt built by our library leverages the proven educational 5-part architecture:</p>
+        <div class="formula-steps">
+          <div class="step-pill">1. Persona / Role</div>
+          <span>+</span>
+          <div class="step-pill">2. Grade & Target Standard</div>
+          <span>+</span>
+          <div class="step-pill">3. Learning Objective</div>
+          <span>+</span>
+          <div class="step-pill">4. Differentiated Output Format</div>
+          <span>+</span>
+          <div class="step-pill">5. Assessment & Guardrails</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 2: PROMPT LIBRARY SHELF ================= -->
+  <section id="view-library" class="view-section">
+    <div class="library-shelf-view">
+      <h2 class="section-title shelf-title">Prompt Library</h2>
+      <p class="section-subtitle">Select an ancient tome to open the interactive generator</p>
+
+      <div class="books-grid" id="booksGrid">
+        
+        <!-- 1. Lesson Plans -->
+        <div class="book-item" data-title="lesson plans" onclick="openGenerator('lesson')">
+          <div class="book-cover book-1">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Lesson Plans</div>
+              <p class="book-desc">Structured, standards-aligned instructional guides & pacing.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Assessment -->
+        <div class="book-item" data-title="assessment quiz test" onclick="openGenerator('assessment')">
+          <div class="book-cover book-2">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Assessment</div>
+              <p class="book-desc">Multi-format tests, rubric matrices & answer keys.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Slides Outline -->
+        <div class="book-item" data-title="slides outline presentation" onclick="openGenerator('slides')">
+          <div class="book-cover book-3">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Slides Outline</div>
+              <p class="book-desc">Slide-by-slide breakdowns with visual & speaker notes.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Unit Plans -->
+        <div class="book-item" data-title="unit plans curriculum" onclick="openGenerator('unit')">
+          <div class="book-cover book-4">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Unit Plans</div>
+              <p class="book-desc">Multi-week thematic scopes, big ideas & milestones.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Extended Activities -->
+        <div class="book-item" data-title="extended activities differentiation enrichment" onclick="openGenerator('extended')">
+          <div class="book-cover book-5">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Extended Activities</div>
+              <p class="book-desc">Enrichment stations, Socratic circles & hands-on tasks.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Simplify Complex Topics -->
+        <div class="book-item" data-title="simplify complex topics analogies scaffolding" onclick="openGenerator('simplify')">
+          <div class="book-cover book-6">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Simplify Topics</div>
+              <p class="book-desc">Real-world metaphors & scaffolded explanations.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Score Analysis -->
+        <div class="book-item" data-title="score analysis grading diagnostics" onclick="openGenerator('score')">
+          <div class="book-cover book-7">
+            <div class="ribbon"></div>
+            <div class="foil-inner-border"></div>
+            <div>
+              <div class="book-title">Score Analysis</div>
+              <p class="book-desc">Data-driven interventions & learning gap remediation.</p>
+            </div>
+            <div class="book-footer">
+              <span class="open-tag">Consult Tome ➔</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VIEW 3: GENERATOR CONTAINER ================= -->
+  <section id="view-generator" class="view-section">
+    <div class="generator-container">
+      <a class="back-nav-btn" onclick="switchView('library')">← Return to Prompt Library</a>
+      
+      <!-- Dynamic Form Target -->
+      <div id="generatorFormArea"></div>
+
+      <!-- Action Buttons -->
+      <button class="btn-generate" onclick="generatePrompt()">Generate Prompt</button>
+      <button class="btn-copy" onclick="copyPrompt()">Copy Prompt</button>
+
+      <!-- Terminal Output Display -->
+      <div class="prompt-output-box" id="promptOutput" placeholder="Your generated prompt will appear here ready to copy..."></div>
+    </div>
+  </section>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast">Prompt copied to clipboard!</div>
+
+  <!-- JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
